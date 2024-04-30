@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Move()
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * Speed;
+        transform.position += movement * Time.deltaTime * Speed; 
     }
 
     void Jump()
@@ -45,6 +45,16 @@ public class Player : MonoBehaviour
         if(collision.gameObject.layer==8)
         {
             isJumping = false;
+        }
+        if(collision.gameObject.layer==7)
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.layer == 9)
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
         }
     }
 
