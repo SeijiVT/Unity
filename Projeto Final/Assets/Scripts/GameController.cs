@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public TMPro.TextMeshProUGUI scoreText;
 
     public GameObject gameOver;
+    public GameObject NextLevel;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +35,17 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(lvlName);
     }
- 
+    public void ShowNextLevel()
+    {
+        NextLevel.SetActive(true);
+    }
+    public void NextLvl(string lvlName)
+    {
+        SceneManager.LoadScene(lvlName);
+    }
+   
 
-    
+
+
 
 }
