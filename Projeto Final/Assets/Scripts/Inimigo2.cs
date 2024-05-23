@@ -36,11 +36,12 @@ public class Inimigo2 : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag=="Player")
         {
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 4, ForceMode2D.Impulse);
+            rig.bodyType = RigidbodyType2D.Dynamic;
             
-            GameController.instance.ShowGameOver();
-            Destroy(collision.gameObject);   
+           
         }
     }
 }
